@@ -50,7 +50,7 @@ public class TestGame extends TestCase {
 		game.add(7);
 		game.add(2);
 		assertEquals(18,game.getScore());
-		game.add(9,game.getScoreForFrame(1));
-		game.add(18,game.getScoreForFrame(2));
+		assertEquals(9,game.getScoreForFrame(1));
+		assertEquals(18,game.getScoreForFrame(2));
 	}
 }
