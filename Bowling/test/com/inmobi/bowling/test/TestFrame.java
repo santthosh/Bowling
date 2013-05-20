@@ -24,4 +24,15 @@ public class TestFrame extends TestCase {
 		Frame frame = new Frame();
 		assertEquals(0,frame.getScore());
 	}
+	
+	/**
+	 * Let add one throw with score 5 to the frame and see what happens?
+	 * 
+	 * Oops it won't even compile, we didn't think through the throw class isn't it?
+	 */
+	public void testAddOneThrow() {
+		Frame frame = new Frame();
+		frame.add(new Throw(5));
+		assertEquals(5,frame.getScore());
+	}
 }
