@@ -62,14 +62,17 @@ public class Game {
 		
 		for(int ball=0,currentFrame = 0;currentFrame < frame;currentFrame++) {
 			int firstThrow = gameThrows[ball++];
-			int secondThrow = gameThrows[ball++];
-			int frameScore = firstThrow + secondThrow;
 			
-			//I did add a logic to check for the frameScore == 10 i.e. Spare
-			if(frameScore == 10) {
-				score += frameScore + gameThrows[ball];
+			if(firstThrow == 10) { // Case for strike
+				score = 10 + gameThrows[ball] + gameThrows[ball+1];
 			} else {
-				score += frameScore;
+				int secondThrow = gameThrows[ball++];
+				int frameScore = firstThrow + secondThrow; 
+				if(frameScore == 10) { //Case for spare
+					score += frameScore + gameThrows[ball];
+				} else {
+					score += frameScore;
+				}	
 			}
 		}
 		return score;
