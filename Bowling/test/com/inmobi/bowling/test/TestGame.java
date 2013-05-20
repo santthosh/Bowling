@@ -71,4 +71,19 @@ public class TestGame extends TestCase {
 		assertEquals(18,game.getScore()); // Let me also double check if the score is coming correct
 		assertEquals(2,game.getCurrentFrame());
 	}
+	
+	/**
+	 * Let me test a strike
+	 * 
+	 * Oh! No, there is no concept for strike, we need to adjust for that
+	 */
+	public void testSimpleStrike() {
+		game.add(10);
+		game.add(6);
+		game.add(3);
+		assertEquals(19,game.getScoreForFrame(1));
+		assertEquals(9,game.getScoreForFrame(2));
+		assertEquals(28,game.getScore());
+		assertEquals(3,game.getCurrentFrame());
+	}
 }
