@@ -42,9 +42,17 @@ public class TestFrame extends TestCase {
 	 * will have to remember the links. Also what happens for the prev for the first frame?
 	 * Magic number -1? 
 	 * 
+	 * i.e. I hit a strike in first frame 10 points, then I hit a 6 and 2 so my frame's points will look like
+	 * 10+6+2 = 18, 6+2 = 8
+	 * 
+	 * or
+	 * 
+	 * I hit a spare in the first frame 7+3, then I hit a 7 in the next roll then my score would be
+	 * 10, 7
+	 * 
 	 * Phew! I'm already sweating..Let me take a step back and see who is holding the frames?
 	 * 
-	 * Game object! Bingo!
+	 * Game object! Bingo! Let me see if I can make way there
 	 * 
 	 */
 	public void testAddOneThrow() {
