@@ -55,4 +55,16 @@ public class TestGame extends TestCase {
 		assertEquals(9,game.getScoreForFrame(1));
 		assertEquals(18,game.getScoreForFrame(2));
 	}
+	
+	/**
+	 * Let me test a spare
+	 */
+	public void testSimpleFrameAfterSpare() {
+		game.add(3);
+		game.add(7); // Thats a spare
+		game.add(3);
+		game.add(2);
+		assertEquals(13,game.getScoreForFrame(1));
+		assertEquals(18,game.getScoreForFrame(2));
+	}
 }
