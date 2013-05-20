@@ -139,4 +139,17 @@ public class TestGame extends TestCase {
 		game.add(6);
 	    assertEquals(133, game.getScore());
 	}
+	
+	
+	/**
+	 * Lets evaluate a heart breaking scenraio where in the player 
+	 * hits 11 strikes and then a 9!
+	 */
+	public void testHeartBreakingCase() {
+		for(int i=0;i<11;i++) {
+			game.add(10);
+		}
+		game.add(9);
+		assertEquals(299,game.getScore());
+	}
 }
