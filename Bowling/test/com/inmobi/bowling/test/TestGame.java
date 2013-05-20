@@ -9,12 +9,17 @@ public class TestGame extends TestCase {
 		super(name);
 	}
 	
+	private Game game;
+	
+	public void setUp() {
+		game = new Game();
+	}
+	
 	/**
 	 * Let me write a basic test case for initial/pre condition, 
 	 * i.e. when no throws have happened yet
 	 */
 	public void testScoreNoThrows() {
-		Game game = new Game();
 		assertEquals(0,game.getScore());
 	}
 	
@@ -22,7 +27,6 @@ public class TestGame extends TestCase {
 	 * I've moved the entire structure into Game now!
 	 */
 	public void testOneThrow() {
-		Game game = new Game();
 		game.add(5);
 		assertEquals(5,game.getScore());
 	}
@@ -31,7 +35,6 @@ public class TestGame extends TestCase {
 	 * Let me test 2 throws
 	 */
 	public void testTwoThrowsNoMarks() {
-		Game game = new Game();
 		game.add(5);
 		game.add(4);
 		assertEquals(9,game.getScore());
@@ -44,7 +47,6 @@ public class TestGame extends TestCase {
 	 * frame
 	 */
 	public void testFourThrowsNoMarks() {
-		Game game = new Game();
 		game.add(5);
 		game.add(4);
 		game.add(7);
