@@ -8,14 +8,21 @@ public class Frame {
 	 * @return
 	 */
 	public int getScore() {
-		return 0;
+		return currentScore;
 	}
 	
 	/**
-	 * Do we create a throw class? Does it even make sense
-	 * @param t
+	 * Do we create a throw class? Does it even make sense?
+	 * 
+	 * No, we don't need a throw class, its just an action that has the score for that
+	 * instance, why can't we just use an integer here
+	 * 
+	 * Lets also implement it
+	 * @param pins
 	 */
-	public void add(Throw t) {
-		
+	public void add(int pins) {
+		currentScore += pins;
 	}
+	
+	private int currentScore = 0;
 }

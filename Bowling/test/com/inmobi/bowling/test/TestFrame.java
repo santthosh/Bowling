@@ -29,10 +29,12 @@ public class TestFrame extends TestCase {
 	 * Let add one throw with score 5 to the frame and see what happens?
 	 * 
 	 * Oops it won't even compile, we didn't think through the throw class isn't it?
+	 * 
+	 * We'll just 'throw away' the throw class and use basic data type int for that 
 	 */
 	public void testAddOneThrow() {
 		Frame frame = new Frame();
-		frame.add(new Throw(5));
+		frame.add(5);
 		assertEquals(5,frame.getScore());
 	}
 }
