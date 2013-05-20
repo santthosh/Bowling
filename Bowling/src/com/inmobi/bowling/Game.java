@@ -14,9 +14,8 @@ public class Game {
 	 * @param pins
 	 */
 	public void add(int pins) {
-		gameThrows[currentThrow++] = pins;
-		currentScore += pins; 
-		adjustCurrentFrame(pins);
+		scorer.addThrow(pins);
+	    adjustCurrentFrame(pins);
 	}
 	
 	/**
@@ -24,18 +23,30 @@ public class Game {
 	 * accordingly
 	 * @param pins
 	 */
-	public void adjustCurrentFrame(int pins) {
-		if(firstThrow) {
-			if(pins == 10) //strike
-				currentFrame++;
-			else
-				firstThrow = false;
-		} else {
-			firstThrow = true;
-			currentFrame++;
-		}
-		currentFrame = Math.min(10, currentFrame); 
-	}
+	private void adjustCurrentFrame(int pins) {
+	    if (firstThrowInFrame == true)
+	    {
+	      if (adjustFrameForStrike(pins) == false)
+	        firstThrowInFrame = false;
+	    }
+	    else
+	    {
+	      firstThrowInFrame=true;
+	      advanceFrame();
+	    }
+	 }
+
+	  private boolean adjustFrameForStrike(int pins) {
+	    if (pins == 10) {
+	      advanceFrame();
+	      return true;
+	    }
+	    return false;
+	  }  
+
+	  private void advanceFrame() {
+	    currentFrame = Math.min(10, currentFrame + 1);
+	  }
 	
 	/**
 	 * There is a way to get the current frame
@@ -50,38 +61,15 @@ public class Game {
 	}
 	
 	/**
-	 * Go down the frames, and for each pair of throws, accumulate the scores and return that
-	 * 
-	 * But is Game the right place to put this method? Why or why not?
-	 * 
-	 * Why not? It violates Single Responsibility Principle
+	 * Now its more cleaner
 	 * @param frame
 	 * @return
 	 */
 	public int getScoreForFrame(int frame) {
-		int score = 0;
-		
-		for(int ball=0,currentFrame = 0;currentFrame < frame;currentFrame++) {
-			int firstThrow = gameThrows[ball++];
-			
-			if(firstThrow == 10) { // Case for strike
-				score += 10 + gameThrows[ball] + gameThrows[ball+1]; //My bad why didn't any one notice?!
-			} else {
-				int secondThrow = gameThrows[ball++];
-				int frameScore = firstThrow + secondThrow; 
-				if(frameScore == 10) { //Case for spare
-					score += frameScore + gameThrows[ball];
-				} else {
-					score += frameScore;
-				}	
-			}
-		}
-		return score;
+		return scorer.scoreForFrame(frame);
 	}
 	
-	private int currentScore = 0;
-	private int[] gameThrows = new int[21]; //Ugly magic number.. maximum number of throws is 21	
-	private int currentThrow = 0;
 	private int currentFrame = 0;
-	private boolean firstThrow = true;
+	private boolean firstThrowInFrame = true;
+    private Scorer scorer = new Scorer();
 }
