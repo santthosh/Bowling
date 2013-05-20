@@ -34,7 +34,7 @@ public class Game {
 			firstThrow = true;
 			currentFrame++;
 		}
-		currentFrame = Math.min(10, currentFrame);
+		currentFrame = Math.min(10, currentFrame); 
 	}
 	
 	/**
@@ -65,7 +65,7 @@ public class Game {
 			int firstThrow = gameThrows[ball++];
 			
 			if(firstThrow == 10) { // Case for strike
-				score = 10 + gameThrows[ball] + gameThrows[ball+1];
+				score += 10 + gameThrows[ball] + gameThrows[ball+1]; //My bad why didn't any one notice?!
 			} else {
 				int secondThrow = gameThrows[ball++];
 				int frameScore = firstThrow + secondThrow; 
