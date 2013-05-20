@@ -82,8 +82,8 @@ public class TestGame extends TestCase {
 		game.add(6);
 		game.add(3);
 		assertEquals(19,game.getScoreForFrame(1));
-		assertEquals(9,game.getScoreForFrame(2));
+		assertEquals(28,game.getScoreForFrame(2)); // Stupid of me
 		assertEquals(28,game.getScore());
-		assertEquals(3,game.getCurrentFrame());
+		assertEquals(2,game.getCurrentFrame()); // Stupid of me, the current frame is 2
 	}
 }

@@ -34,6 +34,7 @@ public class Game {
 			firstThrow = true;
 			currentFrame++;
 		}
+		currentFrame = Math.min(10, currentFrame);
 	}
 	
 	/**
