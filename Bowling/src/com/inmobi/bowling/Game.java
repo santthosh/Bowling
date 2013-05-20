@@ -35,9 +35,8 @@ public class Game {
 			int frameScore = firstThrow + secondThrow;
 			
 			//I did add a logic to check for the frameScore == 10 i.e. Spare
-			//Darn it still fails
 			if(frameScore == 10) {
-				score += frameScore + gameThrows[ball++];
+				score += frameScore + gameThrows[ball];
 			} else {
 				score += frameScore;
 			}
