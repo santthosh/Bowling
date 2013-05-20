@@ -98,4 +98,19 @@ public class TestGame extends TestCase {
 		assertEquals(300,game.getScore());
 		assertEquals(10,game.getCurrentFrame());
 	}
+	
+	/**
+	 * Test a corner case, what happens when the game ends with a strike
+	 * it should not break trying toa add the 21s and 22nd throw
+	 */
+	public void testEndOfArray() {
+		for (int i=0; i<9; i++) {
+	      game.add(0);
+	      game.add(0);
+	    }
+	    game.add(2);
+	    game.add(8); // 10th frame spare
+	    game.add(10); // Strike in last position of array.
+	    assertEquals(20, game.getScore());
+	}
 }
