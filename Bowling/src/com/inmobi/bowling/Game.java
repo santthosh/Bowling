@@ -15,7 +15,25 @@ public class Game {
 	 */
 	public void add(int pins) {
 		gameThrows[currentThrow++] = pins;
-		currentScore += pins; // This is where the problem is 
+		currentScore += pins; 
+		adjustCurrentFrame(pins);
+	}
+	
+	/**
+	 * method that knows the logic of strike and spare and adjusts the current frame
+	 * accordingly
+	 * @param pins
+	 */
+	public void adjustCurrentFrame(int pins) {
+		if(firstThrow) {
+			if(pins == 10) //strike
+				currentFrame++;
+			else
+				firstThrow = false;
+		} else {
+			firstThrow = true;
+			currentFrame++;
+		}
 	}
 	
 	/**
@@ -26,7 +44,8 @@ public class Game {
 	 * Fourth throw 2 so on..
 	 */
 	public int getCurrentFrame() {
-		return 1 + (currentThrow - 1) /2;
+		return currentFrame;
+		//return 1 + (currentThrow - 1) /2; //Now with the concept of Strike I realize this is a very very bad idea!
 	}
 	
 	/**
@@ -59,4 +78,6 @@ public class Game {
 	private int currentScore = 0;
 	private int[] gameThrows = new int[21]; //Ugly magic number.. maximum number of throws is 21	
 	private int currentThrow = 0;
+	private int currentFrame = 0;
+	private boolean firstThrow = true;
 }
