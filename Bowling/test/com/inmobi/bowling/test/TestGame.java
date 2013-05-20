@@ -69,6 +69,6 @@ public class TestGame extends TestCase {
 		assertEquals(13,game.getScoreForFrame(1));
 		assertEquals(18,game.getScoreForFrame(2));
 		assertEquals(18,game.getScore()); // Let me also double check if the score is coming correct
-		assertEquals(1,game.getCurrentFrame());
+		assertEquals(2,game.getCurrentFrame());
 	}
 }

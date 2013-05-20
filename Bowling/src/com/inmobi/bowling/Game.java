@@ -6,7 +6,8 @@ public class Game {
 	 * @return
 	 */
 	public int getScore() {
-		return currentScore;
+		return getScoreForFrame(getCurrentFrame());
+		// But look here this one fails? because for the first throw getScoreForFrame(0) will be called
 	}
 	
 	/**
