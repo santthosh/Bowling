@@ -18,6 +18,17 @@ public class Game {
 	}
 	
 	/**
+	 * There is a way to get the current frame
+	 * First throw 1
+	 * Second throw 1
+	 * Third throw 2
+	 * Fourth throw 2 so on..
+	 */
+	public int getCurrentFrame() {
+		return 1 + (currentThrow - 1) /2;
+	}
+	
+	/**
 	 * Go down the frames, and for each pair of throws, accumulate the scores and return that
 	 * 
 	 * But is Game the right place to put this method? Why or why not?
