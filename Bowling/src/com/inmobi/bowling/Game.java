@@ -32,7 +32,15 @@ public class Game {
 		for(int ball=0,currentFrame = 0;currentFrame < frame;currentFrame++) {
 			int firstThrow = gameThrows[ball++];
 			int secondThrow = gameThrows[ball++];
-			score += firstThrow + secondThrow;
+			int frameScore = firstThrow + secondThrow;
+			
+			//I did add a logic to check for the frameScore == 10 i.e. Spare
+			//Darn it still fails
+			if(frameScore == 10) {
+				score += frameScore + gameThrows[ball++];
+			} else {
+				score += frameScore;
+			}
 		}
 		return score;
 	}
