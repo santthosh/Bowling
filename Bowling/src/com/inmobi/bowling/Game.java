@@ -14,7 +14,7 @@ public class Game {
 	 */
 	public void add(int pins) {
 		gameThrows[currentThrow++] = pins;
-		currentScore += pins;
+		currentScore += pins; // This is where the problem is 
 	}
 	
 	/**
